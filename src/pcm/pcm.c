@@ -6133,6 +6133,12 @@ snd_pcm_sframes_t snd_pcm_status_get_delay(const snd_pcm_status_t *obj)
 	return obj->delay;
 }
 
+snd_pcm_sframes_t snd_pcm_status_get_ex_size(const snd_pcm_status_t *obj)
+{
+    assert(obj);
+    return obj->ex_size;
+}
+
 /** 
  * \brief Get number of frames available from a PCM status container (see #snd_pcm_avail_update)
  * \return Number of frames ready to be read/written

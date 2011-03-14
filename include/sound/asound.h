@@ -412,6 +412,7 @@ struct sndrv_pcm_status {
 	struct timespec trigger_tstamp;	/* time when stream was started/stopped/paused */
 	struct timespec tstamp;		/* reference timestamp */
 	sndrv_pcm_uframes_t appl_ptr;	/* appl ptr */
+    sndrv_pcm_uframes_t ex_size;    /* extra size ketp not be put into HW buf */
 	sndrv_pcm_uframes_t hw_ptr;	/* hw ptr */
 	sndrv_pcm_sframes_t delay;	/* current delay in frames */
 	sndrv_pcm_uframes_t avail;	/* number of frames available */
