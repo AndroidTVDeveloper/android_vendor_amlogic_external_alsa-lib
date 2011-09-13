@@ -12,9 +12,9 @@ include $(CLEAR_VARS)
 ## Copy ALSA configuration files to rootfs
 ##
 TARGET_ALSA_CONF_DIR := $(TARGET_OUT)/usr/share/alsa
-LOCAL_ALSA_CONF_DIR  := $(LOCAL_PATH)/src/conf
+LOCAL_ALSA_CONF_DIR  := src/conf
 
-copy_from := \
+#copy_from := \
 	alsa.conf \
 	pcm/dsnoop.conf \
 	pcm/modem.conf \
@@ -33,13 +33,33 @@ copy_from := \
 	pcm/front.conf \
 	cards/aliases.conf
 
-copy_to   := $(addprefix $(TARGET_ALSA_CONF_DIR)/,$(copy_from))
-copy_from := $(addprefix $(LOCAL_ALSA_CONF_DIR)/,$(copy_from))
+include $(CLEAR_VARS)
+LOCAL_MODULE := alsalib-alsaconf
+LOCAL_MODULE_STEM := alsa.conf
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_ALSA_CONF_DIR)
+LOCAL_SRC_FILES := $(LOCAL_ALSA_CONF_DIR)/alsa.conf
+include $(BUILD_PREBUILT)
 
-$(copy_to) : $(TARGET_ALSA_CONF_DIR)/% : $(LOCAL_ALSA_CONF_DIR)/% | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE := alsalib-pcmdefaultconf
+LOCAL_MODULE_STEM := default.conf
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_ALSA_CONF_DIR)/pcm
+LOCAL_SRC_FILES := $(LOCAL_ALSA_CONF_DIR)/pcm/default.conf
+include $(BUILD_PREBUILT)
 
-ALL_PREBUILT += $(copy_to)
+include $(CLEAR_VARS)
+LOCAL_MODULE := alsalib-cardsaliasesconf
+LOCAL_MODULE_STEM := aliases.conf
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_ALSA_CONF_DIR)/cards
+LOCAL_SRC_FILES := $(LOCAL_ALSA_CONF_DIR)/cards/aliases.conf
+include $(BUILD_PREBUILT)
+
 
 include $(CLEAR_VARS)
 
