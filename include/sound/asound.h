@@ -412,13 +412,13 @@ struct sndrv_pcm_status {
 	struct timespec trigger_tstamp;	/* time when stream was started/stopped/paused */
 	struct timespec tstamp;		/* reference timestamp */
 	sndrv_pcm_uframes_t appl_ptr;	/* appl ptr */
-    sndrv_pcm_uframes_t ex_size;    /* extra size ketp not be put into HW buf */
-	sndrv_pcm_uframes_t hw_ptr;	/* hw ptr */
+   	sndrv_pcm_uframes_t hw_ptr;	/* hw ptr */
 	sndrv_pcm_sframes_t delay;	/* current delay in frames */
 	sndrv_pcm_uframes_t avail;	/* number of frames available */
 	sndrv_pcm_uframes_t avail_max;	/* max frames available on hw since last status */
 	sndrv_pcm_uframes_t overrange;	/* count of ADC (capture) overrange detections from last status */
 	int suspended_state;		/* suspended stream state */
+    sndrv_pcm_uframes_t ex_size;    /* extra size ketp not be put into HW buf */
 	unsigned char reserved[60];	/* must be filled with zero */
 };
 
