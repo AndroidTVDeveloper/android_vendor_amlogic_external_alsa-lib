@@ -238,7 +238,7 @@ int snd_card_refresh_info(void)
 		}
 	}
 	sprintf(value,"%d'",num);
-	property_set("snd.card.totle.num", value);
+	property_set("snd.card.totle.num", "value");
 	return num;
 }
 
@@ -248,6 +248,6 @@ int snd_card_set_default(int card)
 
 	sprintf(value,"%d'",card);
 
-	property_set("snd.card.default.card", value);
+	property_set("snd.card.default.card", "value");
 	return 0;
 }
