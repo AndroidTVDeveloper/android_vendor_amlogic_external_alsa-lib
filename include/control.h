@@ -217,6 +217,7 @@ int snd_card_next(int *card);
 int snd_card_get_index(const char *name);
 int snd_card_get_name(int card, char **name);
 int snd_card_get_longname(int card, char **name);
+int snd_card_get_aml_card(void);
 int snd_card_refresh_info(void);
 int snd_card_set_default(int card);
 

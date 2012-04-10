@@ -215,6 +215,32 @@ int snd_card_get_longname(int card, char **name)
 		return -ENOMEM;
 	return 0;
 }
+
+int snd_card_get_aml_card(void)
+{
+	int card = -1;
+	char *cardname;
+	char value[64];
+	
+	if (snd_card_next(&card) < 0 || card < 0) {
+		return -1;
+	}
+	while (card>=0){
+		snd_card_get_name(card, &cardname);
+		SYSERR("cardname =%s, card = %d\n", cardname, card);
+		if ((strncmp(cardname,"AML",3)==0)){
+			free(cardname);
+			return card;
+		}
+		free(cardname);
+		if (snd_card_next(&card) < 0) {
+			break;
+		}
+	}
+	return card;
+}
+
+
 int snd_card_refresh_info(void)
 {
 	int card = -1;
