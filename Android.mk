@@ -3,7 +3,8 @@
 # Copyright 2008 Wind River Systems
 #
 
-ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
+# BOARD_ALSA_AUDIO is legacy or true
+ifneq (,$(strip $(filter $(BOARD_ALSA_AUDIO),legacy true)))
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
