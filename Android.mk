@@ -4,7 +4,7 @@
 #
 
 # BOARD_ALSA_AUDIO is legacy or true
-ifneq (,$(strip $(filter $(BOARD_ALSA_AUDIO),legacy true)))
+#ifneq (,$(strip $(filter $(BOARD_ALSA_AUDIO),legacy true)))
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
@@ -101,4 +101,4 @@ LOCAL_SHARED_LIBRARIES := \
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
+#endif
