@@ -220,7 +220,7 @@ static int snd_pcm_file_open_output_file(snd_pcm_file_t *file)
 		/* pipe mode */
 		FILE *pipe;
 		/* clearing */
-		pipe = popen(file->final_fname + 1, "w");
+		pipe = (FILE *)popen(file->final_fname + 1, "w");
 		if (!pipe) {
 			SYSERR("running %s for writing failed",
 					file->final_fname);
