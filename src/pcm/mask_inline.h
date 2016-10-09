@@ -29,6 +29,8 @@
 #define MASK_OFS(i)	((i) >> 5)
 #define MASK_BIT(i)	(1U << ((i) & 31))
 
+int ffs(int x);
+
 MASK_INLINE unsigned int ld2(u_int32_t v)
 {
         unsigned r = 0;

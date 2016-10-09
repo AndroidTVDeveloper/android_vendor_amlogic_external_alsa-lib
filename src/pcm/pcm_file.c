@@ -25,7 +25,7 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  *
  */
-  
+
 #include <endian.h>
 #include <byteswap.h>
 #include <ctype.h>
@@ -33,6 +33,7 @@
 #include "pcm_local.h"
 #include "pcm_plugin.h"
 
+extern FILE *popen(const char *command, const char *type);
 #ifndef PIC
 /* entry for static linking */
 const char *_snd_module_pcm_file = "";
