@@ -54,7 +54,8 @@ void *snd_dlopen(const char *name, int mode)
 #else
 #ifdef HAVE_LIBDL
 	if (name == NULL) {
-#ifdef ANDROID
+//#ifdef ANDROID
+#if 0
 		return RTLD_DEFAULT;
 #else
 		Dl_info dlinfo;
